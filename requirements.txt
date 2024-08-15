@@ -1,0 +1,8 @@
+textract==1.6.5
+python-docx==0.8.11
+PyPDF2
+PyMuPDF
+exceptions
+Werkzeug==2.3.7
+flask
+mysql.connector

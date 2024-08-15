@@ -1,0 +1,17 @@
+Database name: attorney
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE file_metadata (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    original_filename VARCHAR(255),
+    output_filename VARCHAR(255),
+    keywords TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);

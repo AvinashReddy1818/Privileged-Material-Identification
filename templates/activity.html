@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>My Activity</h1>
+        <a href="{{ url_for('dashboard') }}" class="login-btn"><i class="fas fa-arrow-left"></i> Back to Dashboard</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Original Filename</th>
+                    <th>Output Filename</th>
+                    <th>Keywords</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file in files %}
+                <tr>
+                    <td>{{ file.original_filename }}</td>
+                    <td><b><a href="{{ url_for('download_file', filename=file.output_filename) }}" target="_blank">{{ file.output_filename }}</a></b></td>
+                    <td>{{ file.keywords }}</td>
+                    <td>{{ file.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
